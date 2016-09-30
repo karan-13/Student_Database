@@ -1,0 +1,179 @@
+<html>
+<head>
+<script>
+
+function Back()
+{
+		window.location="Login.html";
+}
+function name_validate()
+{
+var letters = /^[A-Z a-z]+$/;  
+if(!document.getElementById('TF1').value.match(letters))    
+{  
+document.getElementById('name_error').innerHTML='&nbsp;Username must have alphabet characters only';  
+document.myForm.name.focus();  
+document.getElementById('TF1').value="";
+}
+else
+document.getElementById('name_error').innerHTML='&nbsp;<span style="font-family: Arial Unicode MS, Lucida Grande">&#10004;</span>';  
+
+}
+function age_validate()
+{ 
+if(document.getElementById('TF2').value >99 || document.getElementById('TF2').value<18 || isNaN(document.getElementById('TF2').value))    
+{ 
+document.getElementById('age_error').innerHTML='&nbsp;Invalid Age';  
+document.myForm.age.focus();  
+document.getElementById('TF2').value="";
+}
+else
+document.getElementById('age_error').innerHTML='&nbsp;<span style="font-family: Arial Unicode MS, Lucida Grande">&#10004;</span>';  
+ 
+}
+function phone_validate()
+{ 
+if(document.getElementById('PF3').value.length !=10 || isNaN(document.getElementById('PF3').value) )    
+{ 
+document.getElementById('phone_error').innerHTML='&nbsp;Invalid Phone No';  
+document.myForm.phone_no.focus();  
+document.getElementById('PF3').value="";
+}
+else
+document.getElementById('phone_error').innerHTML='&nbsp;<span style="font-family: Arial Unicode MS, Lucida Grande">&#10004;</span>';  
+ 
+}
+function con_validate()
+{
+	if(document.getElementById('PF1').value!=document.getElementById('PF2').value)
+		{
+			document.getElementById('con_error').innerHTML='&nbsp The password fields don\'t match';
+			document.myForm.confirm_pass.focus();  
+			document.getElementById('PF2').value="";
+			return false;			
+		}
+		else
+		{
+		document.getElementById('con_error').innerHTML='';
+		}
+		return true;
+}
+function pass_validate()
+{
+	if(document.getElementById('PF1').value.length<5)
+		{
+			document.getElementById('pass_error').innerHTML='&nbsp The password is too short(<5).';
+			document.myForm.password.focus();  
+			document.getElementById('PF1').value="";
+			return false;			
+		}
+		else
+		{
+		document.getElementById('pass_error').innerHTML='&nbsp<span style="font-family: Arial Unicode MS, Lucida Grande">&#10004;</span>';
+		}
+		return true;
+}
+function add_validate()
+{
+	if(document.getElementById('TA1').value.length<10)
+		{
+			document.getElementById('add_error').innerHTML='&nbsp The Address is too short(<10).';
+			document.myForm.address.focus();  
+			document.getElementById('TA1').value="";
+			return false;			
+		}
+		else
+		{
+		document.getElementById('add_error').innerHTML='&nbsp<span style="font-family: Arial Unicode MS, Lucida Grande">&#10004;</span>';
+		}
+		return true;
+}
+</script>
+<style>
+	 body { background-image:url(images/books.jpg); background-size:cover; background-repeat:no-repeat; background-position:center;}
+	</style>
+</head>
+<body style="font-family:'Comic Sans MS', cursive;" bgcolor="#0000FF" >
+<center>
+<h1 style="font-family:'Comic Sans MS', cursive;">Sign Up</h1>
+<form action="Sign_up.php" method="post" name="myForm" onSubmit="return con_validte()">
+	
+	<TABLE width="655" height="394"  CELLPADDING="3" CELLSPACING="3" bordercolorlight="#000000" align="center">
+	<TR>
+	  <TD width="641"><table width="993" height="540"  cellpadding="3" cellspacing="3" bordercolorlight="#000000">
+	    <tr>
+	      <td width="37">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+	      <td width="213">&nbsp;NAME:* </td>
+	      <td width="711"><input type="TEXT"  id="TF1" for="name" name="name" required style="background-color:#F66; border:1px solid #F00; border-radius:10px; height:27;" onBlur="name_validate()" size="33"> <h7 id="name_error"></h7></td>
+	      </tr>
+	    <tr>
+	      <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+	      <td>&nbsp;BLOOD GROUP:* </td>
+	      <td><select name="Blood" style="background-color:#F66; border:1px solid #F00;">
+	        <option value="A+"  selected >A+
+	          <option value="A-">A-
+	            <option value="B+">B+
+	              <option value="B-">B-
+                  <option value="AB+">AB+
+                  <option value="AB-">AB-
+                  <option value="O-">O-
+                  <option value="O+">O+
+                  </select></td>
+	      </tr>
+           
+	    <tr>
+	      <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+	      <td>&nbsp;AGE:* </td>
+	      <td><input type="text"  size="33" id="TF2" name="age" required style=" height:27;background-color:#F66; border:1px solid #F00; border-radius:10px;" onBlur="age_validate()"><h7 id="age_error"></h7></td>
+	      </tr>
+	    <tr>
+	      <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+	      <td>&nbsp;SEX:* </td>
+	      <td><table width="200">
+	        <tr>
+	          <td><label>
+	            <input type="radio" name="sex" value="M" id="RadioGroup1_0" >
+	            Male </label></td>
+	          </tr>
+	        <tr>
+	          <td><label>
+	            <input type="radio" name="sex" value="F" id="RadioGroup1_1">
+	            Female</label></td>
+	          </tr>
+	        </table></td>
+	      </tr>
+	    <tr>
+	      <td height="36">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+	      <td>&nbsp;PHONE NO:* </td>
+	      <td><input type="text"  size="33" id="PF3" name="phone_no" required style="height:27;background-color:#F66; border:1px solid #F00; border-radius:10px; " onBlur="phone_validate()"><h7 id="phone_error"></h7></td>
+	      </tr>
+	    <tr>
+	      <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+	      <td>&nbsp;ADDRESS:* </td>
+	      <td><textarea onBlur="add_validate()" name = "address"  id ="TA1" rows =5 cols = 25 required style="height:100;background-color:#F66; border:1px solid #F00; border-radius:10px;"></textarea><h7 id="add_error"> </h7></td>
+	      </tr>
+	    <tr>
+	      <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+	      <td>&nbsp;PASSWORD:* </td>
+	      <td><input type="PASSWORD" size="33" id="PF1" name="password" required style="height:27;background-color:#F66; border:1px solid #F00; border-radius:10px;" onBlur="pass_validate()"><h7 id="pass_error"></td>
+	      </tr>
+	    <tr>
+	      <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+	      <td>CONFIRM PASSWORD:* </td>
+	      <td><input type="PASSWORD"  size="33" id="PF2" name="confirm_pass" required style="height:27;background-color:#F66; border:1px solid #F00; border-radius:10px;" ><h7 id="con_error"></td>
+	      </tr>
+	    <tr>
+	      <td height="34">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+	      <td><input name="Reset" type="reset" value="Reset" onMouseOver="this.style.background='#F66'" onMouseOut=				 "this.style.background='#FF3333'" style="border:1px solid #F00; border-radius:10px; font-size:larger; background-color:#FF3333"></td>
+	      <td><input name="Submit" type="submit" value="Sign Up" onClick="con_validate()" onMouseOver="this.style.background='#F66'" onMouseOut=	"this.style.background='#FF3333'" style="height:27;border:1px solid #F00; border-radius:10px; font-size:larger; background-color:#FF3333"></td>
+	      </tr>
+          <tr>
+           <td height="50">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+           <td colspan="2"><input name="Search" type="button" value=" Back  " onClick="Back()" onMouseOver="this.style.background='#F66'" onMouseOut="this.style.background='#FF3333'" style="height:27;border:1px solid #F00; border-radius:10px; font-size:larger; background-color:#FF3333"></td>    
+	</table>
+</form>
+<p style="font-family:'Comic Sans MS', cursive; color:#FFF"><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*: Fields marked * are mandatory. </i></p>
+</font>
+</center>
+</body>
+</html>

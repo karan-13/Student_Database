@@ -1,0 +1,48 @@
+<HTML>
+<HEAD>
+	<TITLE>
+		LOGIN FORM
+	</TITLE>
+    <script type="text/javascript">
+	function Sign_up()
+	{
+		window.location="Sign_up.html";
+		}
+	</script>
+    <style>
+	 body { background-image:url(images/skul.jpg); background-size:cover; background-repeat:no-repeat; background-position:center;}
+	</style>
+</HEAD>
+<BODY>
+      <center>
+      <h1>Student Personal Database</h1>
+      
+       <form name="myform" action="Login.php" method="post">
+       
+          
+            <table align="center" >  
+              <tr>
+                <td width="205" height="48" ><font size="+2" style="font-family:'Comic Sans MS', cursive">&nbsp;&nbsp;Name :</font></td>
+                <td width="164"><input type="TEXT" size="30" id="TF1" name="id" required  style="background-color:#F66; border:1px solid #F00; border-radius:10px; height:27px"></td>
+              </tr>
+              <tr>
+                <td height="52"><font size="+2" style="font-family:'Comic Sans MS', cursive">&nbsp;&nbsp;Password :</font></td>
+                <td><input type="PASSWORD"  size="30" id="PF1" name="pass"  required  style="height:27px; background-color:#F66; border:1px solid #F00; border-radius:10px;">
+                </td>
+              </tr>
+              <tr>
+                <td height="30" align="center"><input type="button"  value="Sign Up" onClick="Sign_up()" onMouseOver="this.style.background='#F66'" onMouseOut="this.style.background='#FF3333'" style=" height:27px; border:1px solid #F00; border-radius:10px; font-size:larger; background-color:#FF3333"></td>
+                <td height="30" align="center"><input type="submit"  name="Submit" value=" Login  "
+                onMouseOver="this.style.background='#F66'" onMouseOut="this.style.background='#FF3333'" style=" height:27px; border:1px solid #F00; border-radius:10px; font-size:larger; background-color:#FF3333"></td>
+              </tr>
+            </table>
+            <!-- inner table Close-->
+          </form>
+            <p align="center"><a href="Forgot_Password.php"><b>Forgot Password?</b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+            <td width="1362"></td>
+        </tr>
+</table>
+<marquee>Login here to get into the site. Or sign up to store your information.</marquee>
+
+</BODY>
+</HTML>
